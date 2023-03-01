@@ -28,16 +28,13 @@ export const addPost = async (title, content) => {
       body: JSON.stringify({ title, content }),
     };
 
-    const postData = await fetch(`${URL}/posts/create`, options);
-
-    const res = await postData.json();
-    console.log(res);
+    await fetch(`${URL}/posts/create`, options);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const editPost = async (title, content) => {
+export const editPost = async (title, content, id) => {
   try {
     const token = localStorage.getItem('token');
     const options = {
@@ -49,18 +46,35 @@ export const editPost = async (title, content) => {
       body: JSON.stringify({ title, content }),
     };
 
-    const postData = await fetch(`${URL}/posts/create`, options);
-
-    const res = await postData.json();
-    console.log(res);
+    await fetch(`${URL}/posts/${id}`, options);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const postElement = (postData) => {
+export const deletePost = async (id) => {
+  try {
+    const token = localStorage.getItem('token');
+    const options = {
+      method: 'DELETE',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const postData = await fetch(`${URL}/posts/${id}`, options);
+
+    await postData.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const postElement = (postData, user) => {
   const postContainer = document.createElement('div');
   postContainer.classList.add('post');
+  postContainer.id = postData.id;
 
   const userContainer = document.createElement('div');
   userContainer.classList.add('post__userContainer');
@@ -83,6 +97,23 @@ export const postElement = (postData) => {
   userData.appendChild(date);
   userContainer.appendChild(userData);
 
+  if (user.id === postData.user.id) {
+    const userOptions = document.createElement('div');
+    userOptions.classList.add('post__userOptions');
+
+    const editPost = document.createElement('button');
+    editPost.classList.add('post__edit');
+    editPost.innerHTML = 'Editar';
+    const deletePost = document.createElement('button');
+    deletePost.classList.add('post__delete');
+    deletePost.innerHTML = 'Excluir';
+
+    userOptions.appendChild(editPost);
+    userOptions.appendChild(deletePost);
+
+    userContainer.appendChild(userOptions);
+  }
+
   const postTitle = document.createElement('h3');
   postTitle.classList.add('post__title');
   postTitle.innerHTML = postData.title;
@@ -91,9 +122,14 @@ export const postElement = (postData) => {
   postDescription.classList.add('post__description');
   postDescription.innerHTML = postData.content;
 
+  const postView = document.createElement('button');
+  postView.classList.add('post__viewBtn');
+  postView.innerHTML = 'Acessar publicação';
+
   postContainer.appendChild(userContainer);
   postContainer.appendChild(postTitle);
   postContainer.appendChild(postDescription);
+  postContainer.appendChild(postView);
 
   return postContainer;
 };

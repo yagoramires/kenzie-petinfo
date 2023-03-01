@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="src/styles/globalStyles.css" />
@@ -31,41 +28,11 @@
     </header>
 
     <main class="main">
-      <h2 class="main__title">Feed</h2>
+      <div class="main__titleContainer">
+        <h2 class="main__title">Feed</h2>
+      </div>
 
       <div class="postsContainer"></div>
-
-      <div class="post">
-        <div class="post__userContainer">
-          <div class="post__userData">
-            <img
-              src="https://avatars.githubusercontent.com/u/77733200?v=4"
-              alt=""
-              class="post__userImg"
-            />
-            <p class="post__username">Rafael Bertoldo</p>
-            <p class="post__date">Outubro de 2022</p>
-          </div>
-
-          <div class="post__userOptions">
-            <p class="post__edit">Editar</p>
-            <p class="post__delete">Excluir</p>
-          </div>
-        </div>
-
-        <h3 class="post__title">
-          Outubro Rosa: Detalhes sobre a importância da prevenção do câncer de
-          mama em cadelas e gatas
-        </h3>
-
-        <p class="post__description">
-          Assim como em humanos, cadelas e gatas também podem desenvolver câncer
-          de mama. Ainda hoje, para ambas as espécies, o câncer de mama tem
-          maior...
-        </p>
-
-        <button class="post__viewBtn">Acessar publicação</button>
-      </div>
 
       <div class="newPost hidden">
         <div class="newPost__modal">
@@ -98,6 +65,61 @@
             </div>
           </form>
         </div>
+      </div>
+
+      <div class="editPost hidden">
+        <div class="editPost__modal">
+          <div class="editPost__titleContainer">
+            <h4 class="editPost__title">Edição</h4>
+            <button class="editPost__closeBtn">X</button>
+          </div>
+          <form class="editPost__form">
+            <label for="title" class="editPost__label">Título do post</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Digite o título aqui..."
+              class="editPost__input"
+              id="editPostTitle"
+            />
+
+            <label for="post" class="editPost__label">Conteúdo do post</label>
+            <input
+              type="text"
+              name="post"
+              placeholder="Desenvolva o conteúdo do post aqui..."
+              class="editPost__input"
+              id="editPostPost"
+            />
+
+            <div class="editPost__btnContainer">
+              <button class="editPost__cancelBtn">Cancelar</button>
+              <input type="submit" value="Publicar" class="editPost__submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="viewPost hidden">
+        <div class="viewPost__modal">
+          <div class="viewPost__titleContainer">
+            <div class="viewPost__userDataContainer"></div>
+            <button class="viewPost__closeBtn">X</button>
+          </div>
+
+          <h2 class="viewPost__title"></h2>
+          <p class="viewPost__content"></p>
+        </div>
+      </div>
+
+      <div class="successDelete hidden">
+        <h4>
+          <img src="src/assets/success.png" alt="" /> Post deletado com sucesso!
+        </h4>
+        <p>
+          O post selecionado para exlusão foi deletado, a partir de agora não
+          aparecerá no seu feed
+        </p>
       </div>
     </main>
 
