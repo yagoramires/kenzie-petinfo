@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="src/styles/globalStyles.css" />
+    <link rel="stylesheet" href="src/styles/home.css" />
+
+    <title>Home | Petinfo</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__title">Petinfo</h1>
+        <div class="header__data">
+          <button class="header__newPub">Criar Publicação</button>
+          <img
+            src="https://avatars.githubusercontent.com/u/77733200?v=4"
+            alt=""
+            class="header__userImg"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <h2 class="main__title">Feed</h2>
+
+      <div class="postsContainer"></div>
+
+      <div class="post">
+        <div class="post__userContainer">
+          <div class="post__userData">
+            <img
+              src="https://avatars.githubusercontent.com/u/77733200?v=4"
+              alt=""
+              class="post__userImg"
+            />
+            <p class="post__username">Rafael Bertoldo</p>
+            <p class="post__date">Outubro de 2022</p>
+          </div>
+
+          <div class="post__userOptions">
+            <p class="post__edit">Editar</p>
+            <p class="post__delete">Excluir</p>
+          </div>
+        </div>
+
+        <h3 class="post__title">
+          Outubro Rosa: Detalhes sobre a importância da prevenção do câncer de
+          mama em cadelas e gatas
+        </h3>
+
+        <p class="post__description">
+          Assim como em humanos, cadelas e gatas também podem desenvolver câncer
+          de mama. Ainda hoje, para ambas as espécies, o câncer de mama tem
+          maior...
+        </p>
+
+        <button class="post__viewBtn">Acessar publicação</button>
+      </div>
+
+      <div class="newPost hidden">
+        <div class="newPost__modal">
+          <div class="newPost__titleContainer">
+            <h4 class="newPost__title">Criando novo post</h4>
+            <button class="newPost__closeBtn">X</button>
+          </div>
+          <form class="newPost__form">
+            <label for="title" class="newPost__label">Título do post</label>
+            <input
+              type="text"
+              name="title"
+              placeholder="Digite o título aqui..."
+              class="newPost__input"
+              id="newPostTitle"
+            />
+
+            <label for="post" class="newPost__label">Conteúdo do post</label>
+            <input
+              type="text"
+              name="post"
+              placeholder="Desenvolva o conteúdo do post aqui..."
+              class="newPost__input"
+              id="newPostPost"
+            />
+
+            <div class="newPost__btnContainer">
+              <button class="newPost__cancelBtn">Cancelar</button>
+              <input type="submit" value="Publicar" class="newPost__submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="./src/scripts/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/globalStyles.css" />
+    <link rel="stylesheet" href="../styles/auth.css" />
+
+    <title>Login | Petinfo</title>
+  </head>
+  <body>
+    <main>
+      <section class="info">
+        <h1 class="info__title">Petinfo</h1>
+        <h2 class="info__subtitle">Amor e carinho por meio do conhecimento</h2>
+        <p class="info__description">
+          Todas as informações para melhorar a vida do seu pet em um só lugar
+        </p>
+        <div class="info__imageContainer">
+          <div>
+            <div>
+              <img src="../assets/cat.png" alt="" />
+              <img src="../assets/dogsquare.png" alt="" />
+            </div>
+            <img src="../assets/doghoriz.png" alt="" />
+          </div>
+          <img src="../assets/catvert2.png" alt="" />
+        </div>
+      </section>
+      <section class="login">
+        <div class="login__titleContainer">
+          <h4 class="login__title">Login</h4>
+        </div>
+
+        <form class="login__form">
+          <label for="user" class="login__label">E-mail</label>
+          <input
+            type="text"
+            class="login__input"
+            name="user"
+            placeholder="Digite seu e-mail aqui"
+            id="loginEmail"
+          />
+          <label for="password" class="login__label">Senha</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Digite sua senha aqui"
+            class="login__input"
+            id="loginPassword"
+          />
+          <input type="submit" value="Acessar" class="login__submit" />
+        </form>
+        <div class="login__redirectContainer">
+          <h4>Ainda não possui conta?</h4>
+          <p>Clicando no botão abaixo, você pode se cadastrar rapidamente</p>
+          <a href="./register.html" class="login__redirect">Cadastrar</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+
+    padding: 3rem 0;
+}
+
+.header__title {
+    font-weight: 500;
+    font-size: 24px;
+    color: #212529;
+}
+
+.header__data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.header__newPub {
+    color: #FCFEFF;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .5rem 1rem;
+    background: #364FC7;
+    border: 1px solid #364FC7;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header__userImg,
+.post__userImg {
+    width: 41px;
+    height: 41px;
+    border-radius: 100%;
+    border: 1px solid #364FC7;
+}
+
+
+.main {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main__title {
+    font-weight: 500;
+    font-size: 20px;
+    color: #212529;
+    margin-bottom: 3rem;
+}
+
+.post {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.post__userContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__userData {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.post__username {
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+    text-transform: capitalize;
+}
+
+.post__date {
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 14px;
+    color: #868E96;
+}
+
+.post__date::first-letter {
+    text-transform: uppercase;
+}
+
+.post__userOptions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.post__edit {
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+}
+
+.post__delete {
+    font-weight: 500;
+    font-size: 14px;
+    color: #868E96;
+}
+
+.post__title {
+    font-weight: 600;
+    font-size: 24px;
+    color: #212529;
+
+}
+
+.post__description {
+    font-weight: 400;
+    font-size: 16px;
+    color: #495057;
+}
+
+.post__viewBtn {
+    border: none;
+
+    background: transparent;
+    text-align: start;
+    width: 160px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    color: #364FC7;
+}
+
+.newPost {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: rgba(30, 30, 30, 0.5);
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.newPost__modal {
+    margin-top: 5rem;
+    width: 800px;
+    padding: 32px 24px;
+    background: #FCFEFF;
+    border-radius: 8px;
+}
+
+.newPost__titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.newPost__title {
+    font-weight: 500;
+    font-size: 20px;
+    color: #212529;
+}
+
+.newPost__closeBtn {
+    padding: .5rem 1rem;
+    border: none;
+    background: #E9ECEF;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #868E96;
+    cursor: pointer;
+}
+
+.newPost__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: .5rem;
+}
+
+.newPost__label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #212529;
+}
+
+.newPost__input {
+    padding: .7rem 1.1rem;
+    background: #F8F9FA;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+.newPost__input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    color: #868E96;
+}
+
+.newPost__btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+
+.newPost__cancelBtn {
+    font-weight: 500;
+    font-size: 16px;
+    color: #868E96;
+    padding: .5rem 1.3rem;
+    background: #E9ECEF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.newPost__submit {
+    font-weight: 500;
+    font-size: 16px;
+    color: #FCFEFF;
+    padding: .5rem 1.3rem;
+    background: #364FC7;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
