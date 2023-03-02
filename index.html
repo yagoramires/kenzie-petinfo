@@ -51,13 +51,14 @@
             />
 
             <label for="post" class="newPost__label">Conteúdo do post</label>
-            <input
-              type="text"
+
+            <textarea
               name="post"
-              placeholder="Desenvolva o conteúdo do post aqui..."
+              rows="10"
               class="newPost__input"
               id="newPostPost"
-            />
+              placeholder="Desenvolva o conteúdo do post aqui..."
+            ></textarea>
 
             <div class="newPost__btnContainer">
               <button class="newPost__cancelBtn">Cancelar</button>
@@ -84,13 +85,14 @@
             />
 
             <label for="post" class="editPost__label">Conteúdo do post</label>
-            <input
-              type="text"
+
+            <textarea
               name="post"
-              placeholder="Desenvolva o conteúdo do post aqui..."
-              class="editPost__input"
+              rows="10"
               id="editPostPost"
-            />
+              class="editPost__input"
+              placeholder="Desenvolva o conteúdo do post aqui..."
+            ></textarea>
 
             <div class="editPost__btnContainer">
               <button class="editPost__cancelBtn">Cancelar</button>
@@ -107,8 +109,10 @@
             <button class="viewPost__closeBtn">X</button>
           </div>
 
-          <h2 class="viewPost__title"></h2>
-          <p class="viewPost__content"></p>
+          <div class="viewPost__postContainer">
+            <h2 class="viewPost__title"></h2>
+            <p class="viewPost__content"></p>
+          </div>
         </div>
       </div>
 

@@ -1,5 +1,12 @@
 /* Desenvolva seu código aqui */
-import { posts, addPost, postElement, deletePost, editPost } from './posts.js';
+import {
+  posts,
+  addPost,
+  postElement,
+  deletePost,
+  editPost,
+  formatDate,
+} from './posts.js';
 
 const URL = 'http://localhost:3333';
 
@@ -93,11 +100,11 @@ newPostForm.addEventListener('submit', (e) => {
 //Edit Post
 
 const editPostModal = document.querySelector('.editPost');
-const editPostForm = document.querySelector('.editPost__form');
 const editPostCloseBtn = document.querySelector('.editPost__closeBtn');
 const editPostCancelBtn = document.querySelector('.editPost__cancelBtn');
 const editPostTitle = document.querySelector('#editPostTitle');
 const editPostPost = document.querySelector('#editPostPost');
+const viewPostModal = document.querySelector('.viewPost');
 
 editPostCloseBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -151,7 +158,42 @@ const postEditButtons = () => {
 
   postView.forEach((post) => {
     post.addEventListener('click', () => {
-      console.log(post.parentElement.id);
+      const id = post.parentElement.id;
+
+      const postData = postsArray.filter((postArr) => postArr.id === id);
+
+      const closeBtn = document.querySelector('.viewPost__closeBtn');
+      closeBtn.addEventListener('click', () => {
+        viewPostModal.classList.add('hidden');
+      });
+
+      const userDataContainer = document.querySelector(
+        '.viewPost__userDataContainer',
+      );
+      userDataContainer.classList.add('post__userData');
+
+      userDataContainer.innerHTML = '';
+
+      const image = document.createElement('img');
+      image.classList.add('post__userImg');
+      image.src = postData[0].user.avatar;
+      const username = document.createElement('p');
+      username.classList.add('post__username');
+      username.innerHTML = postData[0].user.username;
+      const date = document.createElement('p');
+      date.classList.add('post__date');
+      date.innerHTML = formatDate(postData[0].createdAt);
+
+      userDataContainer.appendChild(image);
+      userDataContainer.appendChild(username);
+      userDataContainer.appendChild(date);
+
+      const postTitle = document.querySelector('.viewPost__title');
+      postTitle.innerText = postData[0].title;
+      const postContent = document.querySelector('.viewPost__content');
+      postContent.innerText = postData[0].content;
+
+      viewPostModal.classList.remove('hidden');
     });
   });
 };

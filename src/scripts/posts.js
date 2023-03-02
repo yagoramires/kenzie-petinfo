@@ -134,7 +134,7 @@ export const postElement = (postData, user) => {
   return postContainer;
 };
 
-const formatDate = (date) => {
+export const formatDate = (date) => {
   const dateFormat = new Date(date);
 
   return dateFormat.toLocaleDateString('pt-BR', {
