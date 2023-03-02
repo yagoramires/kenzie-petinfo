@@ -28,6 +28,7 @@
             class="register__input"
             id="registerUsername"
           />
+          <span class="error" id="usernameError"></span>
           <label for="email" class="register__label">E-mail</label>
           <input
             type="email"
@@ -36,6 +37,7 @@
             class="register__input"
             id="registerEmail"
           />
+          <span class="error" id="emailError"></span>
           <label for="image" class="register__label"
             >Link da foto do perfil</label
           >
@@ -46,6 +48,7 @@
             placeholder="Insira o link aqui"
             id="registerImgUrl"
           />
+          <span class="error" id="avatarError"></span>
           <label for="password" class="register__label">Senha</label>
           <input
             type="password"
@@ -54,8 +57,9 @@
             class="register__input"
             id="registerPassword"
           />
-
+          <span class="error" id="passwordError"></span>
           <input type="submit" value="Cadastrar" class="register__submit" />
+          <span class="error" id="registerError"></span>
         </form>
 
         <a href="./login.html" class="register__redirect--second"

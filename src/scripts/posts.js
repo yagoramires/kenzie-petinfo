@@ -17,6 +17,7 @@ export const posts = async () => {
 };
 
 export const addPost = async (title, content) => {
+  if (!title || !content) return;
   try {
     const token = localStorage.getItem('token');
     const options = {
@@ -35,6 +36,7 @@ export const addPost = async (title, content) => {
 };
 
 export const editPost = async (title, content, id) => {
+  if (!title || !content || !id) return;
   try {
     const token = localStorage.getItem('token');
     const options = {
