@@ -9,10 +9,10 @@ export const handleModal = (user) => {
     userModal = document.createElement('div');
     userModal.classList.add('userModal');
     userModal.classList.add('hidden');
-    userModal.id = 'userModal';
 
     const username = document.createElement('p');
     username.innerHTML = `@${user.username.replace(' ', '').toLowerCase()}`;
+
     const logoutBtn = document.createElement('button');
     const signOutIcon = document.createElement('img');
     signOutIcon.src = './src/assets/signoutlt.svg';
@@ -29,7 +29,7 @@ export const handleModal = (user) => {
 
 export const logout = () => {
   localStorage.removeItem('token');
-  window.location.reload();
+  window.location.href = 'http://localhost:5500/src/pages/login.html';
 };
 
 const root = document.getElementById('root');

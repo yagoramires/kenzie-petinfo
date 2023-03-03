@@ -92,7 +92,6 @@ newPostCancelBtn.addEventListener('click', (e) => {
 
 newPostForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(e);
   addPost(newPostTitle.value, newPostPost.value);
   newPostTitle.value = '';
   newPostPost.value = '';
@@ -164,6 +163,7 @@ const postEditButtons = () => {
     post.addEventListener('click', () => {
       const id = post.parentElement.id;
       const postData = postsArray.filter((postArr) => postArr.id === id);
+
       const closeBtn = document.querySelector('.viewPost__closeBtn');
       closeBtn.addEventListener('click', () => {
         viewPostModal.classList.add('hidden');
@@ -182,11 +182,12 @@ const postEditButtons = () => {
       const date = document.createElement('p');
       date.classList.add('post__date');
       date.innerHTML = formatDate(postData[0].createdAt);
-      userDataContainer.appendChild(image);
-      userDataContainer.appendChild(username);
-      userDataContainer.appendChild(date);
+
+      userDataContainer.append(image, username, date);
+
       const postTitle = document.querySelector('.viewPost__title');
       postTitle.innerText = postData[0].title;
+
       const postContent = document.querySelector('.viewPost__content');
       postContent.innerText = postData[0].content;
       viewPostModal.classList.remove('hidden');
