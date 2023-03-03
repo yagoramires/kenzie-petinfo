@@ -1,5 +1,21 @@
 const URL = 'http://localhost:3333';
 
+const postsContainer = document.querySelector('.postsContainer');
+
+export const loadPosts = async (user) => {
+  const postsArr = await posts();
+
+  postsContainer.innerHTML = '';
+
+  postsArr
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .map((post) => {
+      postsContainer.appendChild(postElement(post, user));
+    });
+
+  postEditButtons();
+};
+
 export const posts = async () => {
   try {
     const token = localStorage.getItem('token');

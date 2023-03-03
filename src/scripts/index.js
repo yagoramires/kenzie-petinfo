@@ -8,11 +8,14 @@ import {
   formatDate,
 } from './posts.js';
 
+import { handleModal } from './userModal.js';
+
 const URL = 'http://localhost:3333';
 
 const postsContainer = document.querySelector('.postsContainer');
 
 let postsArray = [];
+let user;
 
 const loadData = async () => {
   try {
@@ -22,15 +25,16 @@ const loadData = async () => {
       headers: { authorization: `Bearer ${token}` },
     };
 
-    const userData = await fetch(`${URL}/users/profile`, options);
+    const res = await fetch(`${URL}/users/profile`, options);
 
-    if (userData.status !== 200) {
+    if (res.status !== 200) {
       window.location.href = 'http://localhost:5500/src/pages/login.html';
     }
-    const res = await userData.json();
+    const userData = await res.json();
+    user = userData;
 
-    headerImg(res.avatar);
-    loadPosts(res);
+    headerImg(userData.avatar);
+    loadPosts(user);
   } catch (error) {
     console.log(error);
   }
@@ -159,21 +163,16 @@ const postEditButtons = () => {
   postView.forEach((post) => {
     post.addEventListener('click', () => {
       const id = post.parentElement.id;
-
       const postData = postsArray.filter((postArr) => postArr.id === id);
-
       const closeBtn = document.querySelector('.viewPost__closeBtn');
       closeBtn.addEventListener('click', () => {
         viewPostModal.classList.add('hidden');
       });
-
       const userDataContainer = document.querySelector(
         '.viewPost__userDataContainer',
       );
       userDataContainer.classList.add('post__userData');
-
       userDataContainer.innerHTML = '';
-
       const image = document.createElement('img');
       image.classList.add('post__userImg');
       image.src = postData[0].user.avatar;
@@ -183,16 +182,13 @@ const postEditButtons = () => {
       const date = document.createElement('p');
       date.classList.add('post__date');
       date.innerHTML = formatDate(postData[0].createdAt);
-
       userDataContainer.appendChild(image);
       userDataContainer.appendChild(username);
       userDataContainer.appendChild(date);
-
       const postTitle = document.querySelector('.viewPost__title');
       postTitle.innerText = postData[0].title;
       const postContent = document.querySelector('.viewPost__content');
       postContent.innerText = postData[0].content;
-
       viewPostModal.classList.remove('hidden');
     });
   });
@@ -204,3 +200,10 @@ const hideToast = () => {
     postDeleteToast.classList.add('hidden');
   }, 3000);
 };
+
+//🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+//User Modal
+
+const image = document.querySelector('.header__userImg');
+
+image.addEventListener('click', () => handleModal(user));
